@@ -1,9 +1,9 @@
 import express from "express";
 import routes from "./src/routes/index";
 const morgan = require("morgan");
-import cookieParser from "cookie-parser";
-const session = require("express-session");
-const passport = require("passport");
+// import cookieParser from "cookie-parser";
+// const session = require("express-session");
+// const passport = require("passport");
 import bodyParser from "body-parser";
 // import { dotenv } from "dotenv";
 //import  cloudinary  from './config/utils';
