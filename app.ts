@@ -2,18 +2,18 @@ import express from "express";
 import routes from "./src/routes/index";
 const morgan = require("morgan");
 require("dotenv").config();
-// import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 // const session = require("express-session");
 // const passport = require("passport");
 import bodyParser from "body-parser";
 // import { dotenv } from "dotenv";
 //import  cloudinary  from './config/utils';
 
-import cors from "cors";
+// import cors from "cors";
 
 const app = express();
 //cors:
-app.use(cors({ origin: process.env.FRONT_URL }));
+// app.use(cors({ origin: process.env.FRONT_URL }));
 //midlewares:
 
 //----------
@@ -34,6 +34,19 @@ app.use(express.static("public"));
 // );
 // app.use(passport.initialized());
 // app.use(passport.session());
+
+app.use(cookieParser());
+app.use(morgan("dev"));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", process.env.FRONT_URL); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
 
 app.use(morgan("dev"));
 app.use((req, res, next) => {
