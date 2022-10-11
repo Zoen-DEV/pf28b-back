@@ -127,7 +127,7 @@ preCarga();
 getAnimes();
 preCargaTopAnimes();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5432;
 
 db.sequelize.sync({ force: true }).then(async () => {
   app.listen(port, () => {
