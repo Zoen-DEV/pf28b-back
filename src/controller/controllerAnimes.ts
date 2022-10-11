@@ -8,7 +8,7 @@ import {Op} from 'sequelize'
 
 // ruta animesDB---http://localhost:3000/animes--//
 
-exports.getAllAnimes =async (req:Request,res:Response) => {
+const getAllAnimes =async (req:Request,res:Response) => {
   
     try {
         
@@ -22,7 +22,7 @@ exports.getAllAnimes =async (req:Request,res:Response) => {
 
 //ruta name y episodes ---http://localhost:3000/animes/name?name={name}
 
-exports.forNameAndEpisodes = async (req:Request,res:Response)=>{
+const forNameAndEpisodes = async (req:Request,res:Response)=>{
     const {name}=req.query
     try {
       
@@ -56,7 +56,7 @@ exports.forNameAndEpisodes = async (req:Request,res:Response)=>{
       }
 }
 
-exports.getAnimeById = async (req: Request, res: Response) => {
+const getAnimeById = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
       const animeById = await db.Animes.findOne({ where: { id: id } });
@@ -66,3 +66,8 @@ exports.getAnimeById = async (req: Request, res: Response) => {
     }
   };
 
+module.exports = {
+  getAnimeById,
+  forNameAndEpisodes,
+  getAllAnimes
+}
