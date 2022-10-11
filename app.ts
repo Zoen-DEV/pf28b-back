@@ -1,6 +1,7 @@
 import express from "express";
 import routes from "./src/routes/index";
 const morgan = require("morgan");
+require("dotenv").config();
 // import cookieParser from "cookie-parser";
 // const session = require("express-session");
 // const passport = require("passport");
@@ -12,7 +13,7 @@ import cors from "cors";
 
 const app = express();
 //cors:
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: process.env.FRONT_URL }));
 //midlewares:
 
 //----------
