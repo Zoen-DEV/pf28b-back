@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "start": "ts-node-dev --respawn index.ts",
+    "start": "ts-node-dev --respawn .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
